@@ -25,10 +25,7 @@ RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
 RUN apt-get install -y nodejs
 RUN npm install -g node-gyp
 
+ENV TDLIB_COMMAND="/td/tdlib/lib/libtdjson"
+
 WORKDIR /
-RUN npm install airgram express body-parser request
-
-COPY ./ /airgram
-WORKDIR /airgram
-
-ENTRYPOINT ["/airgram/start.sh"]
+RUN npm install airgram
